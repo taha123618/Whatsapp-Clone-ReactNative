@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import React , { useState } from 'react'
 import {
-    View, Text, Image, StyleSheet, KeyboardAvoidingView, TouchableOpacity , ActivityIndicator
+View, Text, Image, StyleSheet, KeyboardAvoidingView, TouchableOpacity , ActivityIndicator
 } from 'react-native'
 import { TextInput, Button } from 'react-native-paper';
 import { launchImageLibrary } from 'react-native-image-picker';
@@ -73,9 +73,9 @@ const SignUp = (naviagation) => {
     }
    // gallery End 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    // }
 
     return (
         <KeyboardAvoidingView behavior='position'>
@@ -83,7 +83,7 @@ const SignUp = (naviagation) => {
             {/* upper text  */}
             <View style={styles.box1}>
                 <Text style={styles.text}>Welcome to whatsapp:5.0.0</Text>
-                <Image style={styles.img} source={require('../assets/logo1.jfif')} />
+                <Image style={styles.img} source={require('../assets/logo.png')} />
             </View>
 
             {/* TextInput */}
@@ -91,7 +91,7 @@ const SignUp = (naviagation) => {
                 {
                     !nextview &&
                     <>
-                        <form onSubmit={handleSubmit}>
+                        {/* <form onSubmit={handleSubmit}> */}
 
                             <TextInput
                                 label='Email'
@@ -134,7 +134,7 @@ const SignUp = (naviagation) => {
                             <TouchableOpacity onPress={() => naviagation.goBack("login")}>
                                 <Text style={{ textAlign: 'center' }}>Already have Account?</Text>
                             </TouchableOpacity>
-                        </form>
+                        {/* </form> */}
                     </>
                 }
             </View>

@@ -1,9 +1,12 @@
-import {useState} from 'react'
+import React ,{useState} from 'react'
 import { View, Text , Image , StyleSheet ,
- KeyboardAvoidingView ,
+KeyboardAvoidingView ,
 TouchableOpacity , ActivityIndicator  } from 'react-native'
 import { TextInput , Button } from 'react-native-paper';
 import auth from '@react-native-firebase/auth'
+
+// import { LoginButton, AccessToken } from 'react-native-fbsdk';
+
 
 const Login = (naviagation) => {
     const [email,setEmail] = useState('')
@@ -12,7 +15,8 @@ const Login = (naviagation) => {
 
 // for loading spinner 
 if(loading){
-    return  <ActivityIndicator size="large" color="#00ff00" />
+    return  
+    <ActivityIndicator size="large" color="#00ff00" />
 }
 // Authentication 
 const userLogin = async ()=>{
@@ -30,23 +34,22 @@ const userLogin = async ()=>{
 }
 //    Authentication End 
 
-const handleSubmit = (e) => {
-    e.preventDefault()
-}
+// const handleSubmit = (e) => {
+//     e.preventDefault()
+// }
 
     return (
         <KeyboardAvoidingView behavior='position'>
-
         {/* upper text  */}
         <View style={styles.box1}>
         <Text style={styles.text}>Welcome to whatsapp:5.0.0</Text>
-        <Image style={styles.img} source={require('../assets/logo1.jfif')} />
+        <Image style={styles.img} source={require('../assets/logo.png')} />
         </View>
 
         {/* TextInput */}
         <View style={styles.box2 }>
        
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}> */}
 
         <TextInput 
         label='Email'
@@ -62,13 +65,34 @@ const handleSubmit = (e) => {
         mode='outlined'
         secureTextEntry
          />
-          <Button mode='contained'
-         onPress={()=>userLogin()}>
-         Login</Button>
         <TouchableOpacity onPress={()=>naviagation.naviagate("signup")}>
          <Text style={{textAlign : 'center'}}>Dont have Account?</Text>
         </TouchableOpacity>
-        </form>
+
+          <Button mode='contained'
+         onPress={()=>userLogin()}>
+         Login</Button>
+        {/* </form> */}
+        
+{/* for lofin fb          */}
+{/* <LoginButton
+          onLoginFinished={
+            (error, result) => {
+              if (error) {
+                console.log("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                console.log("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then(
+                  (data) => {
+                    console.log(data.accessToken.toString())
+                  }
+                )
+              }
+            }
+          }
+          onLogoutFinished={() => console.log("logout.")}/> */}
+
          </View>
 
 

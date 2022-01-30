@@ -1,4 +1,4 @@
-import {useEffect , useState} from 'react'
+import React , {useEffect , useState} from 'react'
 import { View, 
 Text,
 StatusBar,
@@ -19,6 +19,7 @@ const Stack = createStackNavigator();
 
 const Naviagation = ()=> {
   const [user,setUser ] = useState()
+  
  /*/ compontent mounth hone ke bad sirf  1 he bar chale 
   take listner ko register krwao 1 bar /*/
   useEffect(() => {
