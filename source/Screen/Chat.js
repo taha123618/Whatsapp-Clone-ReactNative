@@ -27,6 +27,7 @@ const Chat = ({user, route}) => {
   useEffect(() => {
     // getAllMessages()
 
+    // for real time chat given 
     const docid = uid > user.uid ? user.uid + '-' + uid : uid + '-' + user.uid;
     const messageRef = firestore()
       .collection('chatrooms')
